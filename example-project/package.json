@@ -1,0 +1,29 @@
+{
+  "name": "example-project",
+  "version": "0.1.0",
+  "description": "Example project for testing bundling methods",
+  "main": "dist/index.js",
+  "author": "Jens Bodal",
+  "license": "MIT",
+  "scripts": {
+    "babelify": "npm run build && babel ./dist -d ./babel",
+    "babelify-ts": "npm run clean && babel ./src -d ./babel --extensions \".ts\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "clean": "rm -rf dist/* babel/*",
+    "ncu": "ncu --dep \"dev,prod\"",
+    "test": "./test.sh",
+    "test:babel-node": "babel-node babel/uses-lodash-es/defaultImport.js -i \"[]\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/node": "7.8.7",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-typescript": "7.8.3",
+    "@types/lodash-es": "4.17.3",
+    "lodash-es": "4.17.15",
+    "npm-check-updates": "4.0.4",
+    "typescript": "3.8.3"
+  }
+}
