@@ -1,0 +1,19 @@
+{
+  "name": "library-bar",
+  "version": "0.1.0",
+  "author": "Jens Bodal",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rm -rf lib/* dist/*",
+    "release": "yarn build && timestamp=$(date \"+%s\") && touch lib/$timestamp && yarn pack"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  }
+}

@@ -12,9 +12,12 @@
     "clean": "rm -rf dist/* babel/*",
     "ncu": "ncu --dep \"dev,prod\"",
     "test": "./test.sh",
-    "test:babel-node": "babel-node babel/uses-lodash-es/defaultImport.js -i \"[]\""
+    "test:babel-node": "babel-node babel/uses-lodash-es/defaultImport.js -i \"[]\"",
+    "update:libs": "for file in `find ../library-*/*.tgz`; do npm i $file; done && ls -R node_modules/library-*"
   },
-  "dependencies": {},
+  "dependencies": {
+    "library-bar": "file:../library-bar/library-bar-v0.1.0.tgz"
+  },
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.8.7",
