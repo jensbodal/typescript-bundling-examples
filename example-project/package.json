@@ -6,16 +6,20 @@
   "author": "Jens Bodal",
   "license": "MIT",
   "scripts": {
+    "babel-node": "babel-node -i \"[]\"",
+    "node-esm": "node -r esm",
     "babelify": "npm run build && babel ./dist -d ./babel",
     "babelify-ts": "npm run clean && babel ./src -d ./babel --extensions \".ts\"",
     "build": "npm run clean && tsc -p tsconfig.json",
     "clean": "rm -rf dist/* babel/*",
     "ncu": "ncu --dep \"dev,prod\"",
     "test": "./test.sh",
-    "test:babel-node": "babel-node babel/uses-lodash-es/defaultImport.js -i \"[]\"",
+    "test:babel-node": "npm run babel-node -- babel/uses-lodash-es/defaultImport.js",
+    "test:node-esm": "npm run node-esm -- babel/uses-lodash-es/defaultImport.js",
     "update:libs": "for file in `find ../library-*/*.tgz`; do npm i $file; done && ls -R node_modules/library-*"
   },
   "dependencies": {
+    "esm": "3.2.25",
     "library-bar": "file:../library-bar/library-bar-v0.1.0.tgz"
   },
   "devDependencies": {
@@ -25,6 +29,7 @@
     "@babel/preset-env": "7.8.7",
     "@babel/preset-typescript": "7.8.3",
     "@types/lodash-es": "4.17.3",
+    "@types/node": "13.9.1",
     "lodash-es": "4.17.15",
     "npm-check-updates": "4.0.4",
     "typescript": "3.8.3"
