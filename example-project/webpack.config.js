@@ -35,7 +35,7 @@ const createFileEntryPoints = (path, options = {}) => {
   return entries;
 }
 
-const mode = 'development';
+const mode = 'production';
 
 module.exports = {
   mode,
@@ -43,11 +43,12 @@ module.exports = {
   // ignores built-in modules like path, fs, etc.
   target: 'node',
   // node + splitChunks only works with webpack@5
-  // optimization: {
+  optimization: {
+    minimize: false,
   //   splitChunks: {
   //     chunks: 'all',
   //   }
-  // },
+  },
 
   entry: createFileEntryPoints('./src', {
     extensions: ['.ts'],

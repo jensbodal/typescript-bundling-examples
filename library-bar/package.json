@@ -11,9 +11,12 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rm -rf lib/* dist/*",
-    "release": "yarn build && timestamp=$(date \"+%s\") && touch lib/$timestamp && yarn pack"
+    "release": "npm run build && timestamp=$(date \"+%s\") && touch lib/$timestamp && npm pack",
+    "watch": "nodemon -w src -e ts --exec 'npm run release'"
   },
   "devDependencies": {
+    "@types/lodash-es": "4.17.3",
+    "lodash-es": "4.17.15",
     "typescript": "3.8.3"
   }
 }
