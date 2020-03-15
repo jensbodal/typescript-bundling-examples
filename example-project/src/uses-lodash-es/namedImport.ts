@@ -1,6 +1,6 @@
-import partialRight from "lodash-es/partialRight";
+import {partialRight} from "lodash-es";
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
+const arr = [1, 2, 3, 4, 5];
 
 const something = arr.map(v => ({ value: v }));
 

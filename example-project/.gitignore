@@ -1,2 +1,6 @@
-# Directories
+# directories
 /babel/
+/dist-webpack/
+
+# files
+.rebuilt
