@@ -33,6 +33,7 @@
     "@types/lodash-es": "4.17.3",
     "@types/node": "13.9.1",
     "babel-loader": "8.0.6",
+    "fork-ts-checker-webpack-plugin": "4.1.0",
     "lodash-es": "4.17.15",
     "nodemon": "2.0.2",
     "npm-check-updates": "4.0.4",

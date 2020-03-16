@@ -12,5 +12,6 @@ const withAllLodash = () => {
   };
 }
 
+// this default export is not needed just adding to show it doesn't affect tree shaking
 export default withAllLodash;
 export { withAllLodash };

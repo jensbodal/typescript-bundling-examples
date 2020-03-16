@@ -1,7 +1,10 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
 const {readdirSync, statSync} = require('fs');
+
+const packageJson = require('./package.json');
 
 const createFileEntryPoints = (path, options = {}) => {
   let entries = {};
@@ -36,45 +39,43 @@ const createFileEntryPoints = (path, options = {}) => {
   return entries;
 }
 
-const mode = 'production';
-
 module.exports = {
-  mode,
-  // compile for usage in a node.js environment
-  // ignores built-in modules like path, fs, etc.
+  mode: 'production',
   target: 'node',
-  optimization: {
-    minimize: false,
-    // node + splitChunks only works with webpack@5
-    // splitChunks: {
-    //   chunks: 'all',
-    // }
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  context: __dirname,
+  // entry: createFileEntryPoints('./src', {
+  //   extensions: ['.ts'],
+  //   ignoreExtensions: ['.test.ts', '.spec.ts'],
+  //   replacePrefix: './src/',
+  // }),
+  entry: {
+    main: './src/index.ts',
   },
-
-  entry: createFileEntryPoints('./src', {
-    extensions: ['.ts'],
-    ignoreExtensions: ['.test.ts', '.spec.ts'],
-    replacePrefix: './src/',
-  }),
-
   output: {
-    path: path.resolve(__dirname, 'dist-webpack'),
-    chunkFilename: '[name].chunk.js',
+    path: path.resolve(__dirname, 'lib'),
+    filename: 'index.webpack.js',
+    library: packageJson.name,
+    libraryTarget: 'umd',
   },
-
   module: {
     rules: [
       {
-        test: /\.(js|ts)$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+        },
       },
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.ts', '.js'],
+    alias: {
+      src: path.resolve(__dirname, 'src/'),
+    },
+    extensions: ['.ts'],
   },
 };

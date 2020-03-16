@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Jens Bodal",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "lib/index.webpack.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "files": [
@@ -12,12 +12,21 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rm -rf lib/* dist/*",
+    "ncu": "ncu --dep \"dev,prod\"",
     "release": "npm run build && timestamp=$(date \"+%s\") && touch lib/$timestamp && npm pack",
-    "watch": "nodemon -w src -e ts --exec 'npm run release'"
+    "release:webpack": "npm run clean && npm run build && npm run webpack && timestamp=$(date \"+%s\") && touch lib/$timestamp && npm pack",
+    "watch": "nodemon -w src -e ts --exec 'npm run release'",
+    "webpack": "webpack --progress --hide-modules --no-display-entrypoints"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.3",
+    "fork-ts-checker-webpack-plugin": "4.1.0",
     "lodash-es": "4.17.15",
-    "typescript": "3.8.3"
+    "npm-check-updates": "4.0.4",
+    "ts-loader": "6.2.1",
+    "typescript": "3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "3.3.11",
+    "webpack-node-externals": "1.7.2"
   }
 }
