@@ -1,1 +1,1 @@
-export * from './fileA';
+export * from './with-all-lodash';
