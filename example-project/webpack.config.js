@@ -44,11 +44,11 @@ module.exports = {
   // ignores built-in modules like path, fs, etc.
   target: 'node',
   optimization: {
-    minimize: false,
+    // minimize: false,
     // node + splitChunks only works with webpack@5
-    // splitChunks: {
-    //   chunks: 'all',
-    // }
+    splitChunks: {
+      chunks: 'all',
+    }
   },
 
   entry: createFileEntryPoints('./src', {
