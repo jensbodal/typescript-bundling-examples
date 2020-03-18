@@ -14,12 +14,25 @@
   },
   "homepage": "https://github.com/jensbodal/typescript-bundling-examples#readme",
   "scripts": {
+    "eslint": "eslint -c eslintrc.js",
     "format": "prettier --list-different **/src/**/*.ts --write",
-    "format:check": "prettier --check **/src/**/*.ts"
+    "format:check": "prettier --check **/src/**/*.ts",
+    "lint": "npm run eslint -- '**/*.{js,ts}'",
+    "lint:fix": "npm run lint -- --fix",
+    "ncu": "ncu --dep \"dev,prod\""
   },
+  "dependencies": {},
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "4.2.3",
+    "lint-staged": "^10.0.8",
+    "npm-check-updates": "4.0.4",
     "prettier": "1.19.1",
-    "pretty-quick": "^2.0.1"
+    "typescript": "^3.8.3"
   }
 }

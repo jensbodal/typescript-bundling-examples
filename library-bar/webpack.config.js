@@ -2,8 +2,6 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
-const {readdirSync, statSync} = require('fs');
-
 const babelConfig = require('./babel.config.js');
 const packageJson = require('./package.json');
 
@@ -37,9 +35,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ForkTsCheckerWebpackPlugin(),
-  ],
+  plugins: [new ForkTsCheckerWebpackPlugin()],
   resolve: {
     // only necessary if only using ts-loader?
     // alias: {

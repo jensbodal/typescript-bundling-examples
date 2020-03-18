@@ -1,7 +1,6 @@
-/**
- * @param key string
- * @param defaultValue boolean
- * @return (boolean | string)
+/*
+ * parses an environment variable for its value
+ * returns any booleans as an actual boolean
  */
 const parseEnv = (key: string, defaultValue: boolean | string = false) => {
   const value: string | boolean = process.env[key] as string | boolean;
@@ -19,6 +18,6 @@ const parseEnv = (key: string, defaultValue: boolean | string = false) => {
   }
 
   return value;
-}
+};
 
 export { parseEnv };

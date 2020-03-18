@@ -1,11 +1,11 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 
-const {readdirSync, statSync} = require('fs');
+const { readdirSync, statSync } = require('fs');
 
 const createFileEntryPoints = (path, options = {}) => {
   let entries = {};
-  const { extensions = [], ignoreExtensions = [], replacePrefix = ''} = options;
+  const { extensions = [], ignoreExtensions = [], replacePrefix = '' } = options;
   const files = readdirSync(path);
 
   for (const file of files) {
@@ -18,7 +18,7 @@ const createFileEntryPoints = (path, options = {}) => {
     if (statSync(filepath).isDirectory()) {
       entries = {
         ...entries,
-        ...createFileEntryPoints(filepath, options)
+        ...createFileEntryPoints(filepath, options),
       };
     } else {
       if (!extensions.some(extension => file.endsWith(extension))) {
@@ -34,7 +34,7 @@ const createFileEntryPoints = (path, options = {}) => {
   }
 
   return entries;
-}
+};
 
 const mode = 'production';
 
@@ -48,7 +48,7 @@ module.exports = {
     // node + splitChunks only works with webpack@5
     splitChunks: {
       chunks: 'all',
-    }
+    },
   },
 
   entry: createFileEntryPoints('./src', {
@@ -71,9 +71,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ForkTsCheckerWebpackPlugin()
-  ],
+  plugins: [new ForkTsCheckerWebpackPlugin()],
   resolve: {
     extensions: ['.ts', '.js'],
   },

@@ -4,7 +4,7 @@ describe('parseEnv', () => {
   const originalEnv = process.env;
 
   beforeEach(() => {
-    process.env = {...originalEnv};
+    process.env = { ...originalEnv };
   });
 
   afterEach(() => {
