@@ -18,6 +18,8 @@
     "format:check": "prettier --check **/src/**/*.ts"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "husky": "4.2.3",
+    "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1"
   }
 }
