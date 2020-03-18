@@ -1,4 +1,4 @@
-import partialRight from "lodash-es/partialRight";
+import partialRight from 'lodash-es/partialRight';
 
 const arr = [
   1,
@@ -729,7 +729,7 @@ const arr = [
   5,
   3,
   4,
-  3
+  3,
 ];
 
 const something = arr.map(v => ({ value: v }));

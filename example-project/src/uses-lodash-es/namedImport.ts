@@ -1,4 +1,4 @@
-import {partialRight} from "lodash-es";
+import { partialRight } from 'lodash-es';
 
 const arr = [1, 2, 3, 4, 5];
 

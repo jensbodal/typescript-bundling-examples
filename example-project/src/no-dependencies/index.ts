@@ -4,5 +4,5 @@ const something = arr.map(v => ({ value: v }));
 
 (() => console.log(something))();
 
-export { something }
+export { something };
 export default something;

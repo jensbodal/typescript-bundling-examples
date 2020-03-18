@@ -1,0 +1,23 @@
+{
+  "name": "typescript-bundling-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensbodal/typescript-bundling-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensbodal/typescript-bundling-examples/issues"
+  },
+  "homepage": "https://github.com/jensbodal/typescript-bundling-examples#readme",
+  "scripts": {
+    "format": "prettier --list-different **/src/**/*.ts --write",
+    "format:check": "prettier --check **/src/**/*.ts"
+  },
+  "devDependencies": {
+    "prettier": "1.19.1"
+  }
+}
