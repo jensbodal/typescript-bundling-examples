@@ -1,3 +1,9 @@
+/* eslint-disable-next-line no-unused-vars */
+const disable = 0;
+/* eslint-disable-next-line no-unused-vars */
+const warn = 1;
+const error = 2;
+
 module.exports = {
   env: {
     es6: true,
@@ -14,5 +20,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
-  rules: {},
+  rules: {
+    'no-inline-comments': error,
+  },
 };

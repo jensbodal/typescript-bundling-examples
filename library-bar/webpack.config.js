@@ -8,7 +8,8 @@ const packageJson = require('./package.json');
 module.exports = {
   mode: 'production',
   target: 'node',
-  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  // in order to ignore all modules in node_modules folder
+  externals: [nodeExternals()],
   context: __dirname,
   entry: {
     main: './src/index.ts',
