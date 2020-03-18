@@ -1,9 +1,12 @@
-#####################################################################################
-# message
-# build, chore, ci, docs, feat, fix, improvement, perf, refactor, revert, style, test
-#####################################################################################
 
-type: subject
+
+############################################################################################
+# type(?scope): subject
+# types: build, chore, ci, docs, feat, fix, improvement, perf, refactor, revert, style, test
+# scopes: root, example-project, library-bar
+############################################################################################
+
+
 
 
 ###################
@@ -16,11 +19,8 @@ type: subject
 #####################
 # [optional footer] #
 #####################
-
-
-
-
-####################
+#
+#######################################################################################################################
 # Type must be one of the following:
 #     * build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
 #     * chore: Updating configs, no production code change
@@ -34,3 +34,4 @@ type: subject
 #     * revert: Reverts an existing commit
 #     * style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 #     * test: Adding missing tests or correcting existing tests
+#######################################################################################################################
